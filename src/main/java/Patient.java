@@ -5,7 +5,7 @@ public class Patient extends Person implements Diagnosable {
     private String diagnosis = "";
 
 
-    public Patient(String firstName, String lastName, String socialSecurityNumber) {
+    protected Patient(String firstName, String lastName, String socialSecurityNumber) {
         super(firstName, lastName, socialSecurityNumber);
 
     }
@@ -15,7 +15,7 @@ public class Patient extends Person implements Diagnosable {
 
 
 
-    public String getDiagnosis() {
+    protected String getDiagnosis() {
         return diagnosis;
     }
 
