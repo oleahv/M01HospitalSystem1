@@ -3,5 +3,5 @@
 public interface Diagnosable {
 
 
-    public void setDiagnose();
+    public void setDiagnose(String diagnose);
 }

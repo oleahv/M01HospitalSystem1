@@ -7,14 +7,11 @@ public class Patient extends Person implements Diagnosable {
 
     public Patient(String firstName, String lastName, String socialSecurityNumber) {
         super(firstName, lastName, socialSecurityNumber);
+
     }
 
 
-/*
-    public Patient(String, String, String) {
-        this.diagnosis = diagnosis;
-    }
-*/
+
 
 
 
@@ -27,10 +24,19 @@ public class Patient extends Person implements Diagnosable {
         this.diagnosis = diagnosis;
     }
 
+
+
     @Override
-    public void setDiagnose() {
+    public String toString() {
+        return "Patient{" +
+                "diagnosis='" + diagnosis + '\'' +
+                '}';
+    }
+
+    @Override
+    public void setDiagnose(String diagnose) {
 
     }
 
-    //TODO: toString
+//TODO: toString
 }

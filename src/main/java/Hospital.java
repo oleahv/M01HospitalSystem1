@@ -2,7 +2,7 @@
 
 public class Hospital {
 
-    private String hospitalName;
+    private final String hospitalName;
 
     public Hospital(String hospitalName) {
         this.hospitalName = hospitalName;
@@ -12,9 +12,7 @@ public class Hospital {
         return hospitalName;
     }
 
-    public void setHospitalName(String hospitalName) {
-        this.hospitalName = hospitalName;
-    }
+
 
     //TODO: Tostring
 }

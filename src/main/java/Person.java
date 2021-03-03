@@ -7,11 +7,18 @@ public abstract class Person {
     private String socialSecurityNumber;
 
 
+
+
+
     public Person(String firstName, String lastName, String socialSecurityNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.socialSecurityNumber = socialSecurityNumber;
     }
+
+
+    //Setter and getters.
+    // Note; 'getFullName uses first and last name + space
 
     public String getFirstName() {
         return firstName;
@@ -25,6 +32,11 @@ public abstract class Person {
         return lastName;
     }
 
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -36,5 +48,14 @@ public abstract class Person {
     public void setSocialSecurityNumber(String socialSecurityNumber) {
         this.socialSecurityNumber = socialSecurityNumber;
     }
-    //TODO: Tostring
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", socialSecurityNumber='" + socialSecurityNumber + '\'' +
+                '}';
+    }
+//TODO: Tostring
 }
