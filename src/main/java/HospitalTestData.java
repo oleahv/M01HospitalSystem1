@@ -1,38 +1,48 @@
 
 /*
-import mappe.del1.hospital.healthpersonal.Nurse;
-import mappe.del1.hospital.healthpersonal.doctor.GeneralPractitioner;
-import mappe.del1.hospital.healthpersonal.doctor.Surgeon;
+import mappe.del1.hospital.hospital.healthpersonal.hospital.healthpersonal.Nurse;
+import mappe.del1.hospital.hospital.healthpersonal.hospital.healthpersonal.doctor.hospital.healthpersonal.doctor.GeneralPractitioner;
+import mappe.del1.hospital.hospital.healthpersonal.hospital.healthpersonal.doctor.hospital.healthpersonal.doctor.Surgeon;
 public final class HospitalTestData {
     private HospitalTestData() {
         // not called
     }*/
+/*
+import hospital.healthpersonal.Nurse;
+import hospital.healthpersonal.doctor.GeneralPractitioner;
+import hospital.healthpersonal.doctor.Surgeon;
+public final class HospitalTestData {
+    private HospitalTestData() {
+        // not called
+    }
+*/
     /**
      * @param hospital
      */
-  /*  public static void fillRegisterWithTestData(final Hospital hospital) {
+/*
+    public static void fillRegisterWithTestData(final hospital.Hospital hospital) {
         // Add some departments
-        Department emergency = new Department("Akutten");
-        emergency.getEmployees().add(new Employee("Odd Even", "Primtallet", ""));
-        emergency.getEmployees().add(new Employee("Huppasahn", "DelFinito", ""));
-        emergency.getEmployees().add(new Employee("Rigmor", "Mortis", ""));
-        emergency.getEmployees().add(new GeneralPractitioner("Inco", "Gnito", ""));
-        emergency.getEmployees().add(new Surgeon("Inco", "Gnito", ""));
-        emergency.getEmployees().add(new Nurse("Nina", "Teknologi", ""));
-        emergency.getEmployees().add(new Nurse("Ove", "Ralt", ""));
-        emergency.getPatients().add(new Patient("Inga", "Lykke", ""));
-        emergency.getPatients().add(new Patient("Ulrik", "Smål", ""));
+        hospital.Department emergency = new hospital.Department("Akutten");
+        emergency.getEmployees().add(new hospital.Employee("Odd Even", "Primtallet", ""));
+        emergency.getEmployees().add(new hospital.Employee("Huppasahn", "DelFinito", ""));
+        emergency.getEmployees().add(new hospital.Employee("Rigmor", "Mortis", ""));
+        emergency.getEmployees().add(new hospital.healthpersonal.doctor.GeneralPractitioner("Inco", "Gnito", ""));
+        emergency.getEmployees().add(new hospital.healthpersonal.doctor.Surgeon("Inco", "Gnito", ""));
+        emergency.getEmployees().add(new hospital.healthpersonal.Nurse("Nina", "Teknologi", ""));
+        emergency.getEmployees().add(new hospital.healthpersonal.Nurse("Ove", "Ralt", ""));
+        emergency.getPatients().add(new hospital.Patient("Inga", "Lykke", ""));
+        emergency.getPatients().add(new hospital.Patient("Ulrik", "Smål", ""));
         hospital.getDepartments().add(emergency);
-        Department childrenPolyclinic = new Department("Barn poliklinikk");
-        childrenPolyclinic.getEmployees().add(new Employee("Salti", "Kaffen", ""));
-        childrenPolyclinic.getEmployees().add(new Employee("Nidel V.", "Elvefølger", ""));
-        childrenPolyclinic.getEmployees().add(new Employee("Anton", "Nym", ""));
-        childrenPolyclinic.getEmployees().add(new GeneralPractitioner("Gene", "Sis", ""));
-        childrenPolyclinic.getEmployees().add(new Surgeon("Nanna", "Na", ""));
-        childrenPolyclinic.getEmployees().add(new Nurse("Nora", "Toriet", ""));
-        childrenPolyclinic.getPatients().add(new Patient("Hans", "Omvar", ""));
-        childrenPolyclinic.getPatients().add(new Patient("Laila", "La", ""));
-        childrenPolyclinic.getPatients().add(new Patient("Jøran", "Drebli", ""));
+        hospital.Department childrenPolyclinic = new hospital.Department("Barn poliklinikk");
+        childrenPolyclinic.getEmployees().add(new hospital.Employee("Salti", "Kaffen", ""));
+        childrenPolyclinic.getEmployees().add(new hospital.Employee("Nidel V.", "Elvefølger", ""));
+        childrenPolyclinic.getEmployees().add(new hospital.Employee("Anton", "Nym", ""));
+        childrenPolyclinic.getEmployees().add(new hospital.healthpersonal.doctor.GeneralPractitioner("Gene", "Sis", ""));
+        childrenPolyclinic.getEmployees().add(new hospital.healthpersonal.doctor.Surgeon("Nanna", "Na", ""));
+        childrenPolyclinic.getEmployees().add(new hospital.healthpersonal.Nurse("Nora", "Toriet", ""));
+        childrenPolyclinic.getPatients().add(new hospital.Patient("Hans", "Omvar", ""));
+        childrenPolyclinic.getPatients().add(new hospital.Patient("Laila", "La", ""));
+        childrenPolyclinic.getPatients().add(new hospital.Patient("Jøran", "Drebli", ""));
         hospital.getDepartments().add(childrenPolyclinic);
     }
 }

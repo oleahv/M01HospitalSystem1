@@ -1,4 +1,6 @@
+package hospital.healthpersonal;
 
+import hospital.Employee;
 
 public class Nurse extends Employee {
 
@@ -11,7 +13,7 @@ public class Nurse extends Employee {
 
 
 /*
-    public Nurse(String, String, String) {
+    public hospital.healthpersonal.Nurse(String, String, String) {
     }
     TODO: toString*/
 }

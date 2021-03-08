@@ -1,4 +1,6 @@
+package hospital.healthpersonal.doctor;
 
+import hospital.Patient;
 
 public class GeneralPractitioner extends Doctor {
     public GeneralPractitioner(String firstName, String lastName, String socialSecurityNumber) {

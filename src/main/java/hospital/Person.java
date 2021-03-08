@@ -1,4 +1,4 @@
-
+package hospital;
 
 public abstract class Person {
 
@@ -51,7 +51,7 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "hospital.Person{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", socialSecurityNumber='" + socialSecurityNumber + '\'' +

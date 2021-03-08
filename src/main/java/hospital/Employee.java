@@ -1,4 +1,4 @@
-
+package hospital;
 
 public class Employee extends Person {
 
@@ -7,12 +7,17 @@ public class Employee extends Person {
         super(firstName, lastName, socialSecurityNumber);
     }
 
+
+
+
+
+
     @Override
     public String toString() {
-        return "Employee{}";
+        return "hospital.Employee{}";
     }
 /*
-    public Nurse(String, String, String) {
+    public hospital.healthpersonal.Nurse(String, String, String) {
     }
     TODO: toString*/
 }

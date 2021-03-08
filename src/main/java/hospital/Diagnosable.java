@@ -1,4 +1,4 @@
-
+package hospital;
 
 public interface Diagnosable {
 

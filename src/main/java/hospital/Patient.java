@@ -1,4 +1,4 @@
-
+package hospital;
 
 public class Patient extends Person implements Diagnosable {
 
@@ -14,7 +14,7 @@ public class Patient extends Person implements Diagnosable {
 
 
 
-
+/*
     protected String getDiagnosis() {
         return diagnosis;
     }
@@ -24,6 +24,7 @@ public class Patient extends Person implements Diagnosable {
         this.diagnosis = diagnosis;
     }
 
+ */
 
 
     @Override
@@ -37,6 +38,7 @@ public class Patient extends Person implements Diagnosable {
     public void setDiagnose(String diagnose) {
 
     }
+
 
 //TODO: toString
 }
