@@ -17,6 +17,8 @@ public abstract class Person {
     }
 
 
+
+
     //Setter and getters.
     // Note; 'getFullName uses first and last name + space
 

@@ -6,7 +6,7 @@ public class Hospital {
 
     private final String hospitalName;
 
-
+//TODO: check if Arrays.toList() can be better option
     List<Department> departmentList = new ArrayList<>();
 
     public Hospital(String hospitalName) {
@@ -26,12 +26,12 @@ public class Hospital {
         //TODO: make a arraylist with departmentarraylist name
     }
 
-
+/*
     public void addDepartment(Department) {
         System.out.println("test");
 
     }
-
+*/
 
 
     @Override

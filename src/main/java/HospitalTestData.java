@@ -7,21 +7,33 @@ public final class HospitalTestData {
     private HospitalTestData() {
         // not called
     }*/
-/*
+
+
+import hospital.Department;
+import hospital.Employee;
+import hospital.Hospital;
+import hospital.Person;
 import hospital.healthpersonal.Nurse;
 import hospital.healthpersonal.doctor.GeneralPractitioner;
 import hospital.healthpersonal.doctor.Surgeon;
+
+import javax.net.ssl.HostnameVerifier;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public final class HospitalTestData {
     private HospitalTestData() {
         // not called
     }
-*/
+
     /**
      * @param hospital
      */
-/*
+
     public static void fillRegisterWithTestData(final hospital.Hospital hospital) {
         // Add some departments
+
         hospital.Department emergency = new hospital.Department("Akutten");
         emergency.getEmployees().add(new hospital.Employee("Odd Even", "Primtallet", ""));
         emergency.getEmployees().add(new hospital.Employee("Huppasahn", "DelFinito", ""));
@@ -44,6 +56,16 @@ public final class HospitalTestData {
         childrenPolyclinic.getPatients().add(new hospital.Patient("Laila", "La", ""));
         childrenPolyclinic.getPatients().add(new hospital.Patient("Jøran", "Drebli", ""));
         hospital.getDepartments().add(childrenPolyclinic);
+
+
+
+
+/*
+        //how to remove by index (need a way to find or, or change it
+
+        emergency.remove(emergency.getPatients().get(1));
+        emergency.remove(emergency.getPatients().get(0));
+*/
+
     }
 }
-*/

@@ -5,10 +5,12 @@ public class Patient extends Person implements Diagnosable {
     private String diagnosis = "";
 
 
-    protected Patient(String firstName, String lastName, String socialSecurityNumber) {
+    //TODO: this has protected acces. Try without it
+    public Patient(String firstName, String lastName, String socialSecurityNumber) {
         super(firstName, lastName, socialSecurityNumber);
 
     }
+
 
 
 
@@ -26,10 +28,11 @@ public class Patient extends Person implements Diagnosable {
 
  */
 
-
+//Social security number is NOT hidden here
     @Override
     public String toString() {
-        return "Patient{" +
+        return "Patient{ "  + getFullName()+ "\n" +
+                getSocialSecurityNumber() + "\n" +
                 "diagnosis='" + diagnosis + '\'' +
                 '}';
     }
