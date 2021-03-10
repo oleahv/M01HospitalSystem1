@@ -8,6 +8,7 @@ public abstract class Person {
 
 
 
+//TODO: make a check for 0 is not viable
 
 
     public Person(String firstName, String lastName, String socialSecurityNumber) {
@@ -20,7 +21,7 @@ public abstract class Person {
 
 
     //Setter and getters.
-    // Note; 'getFullName uses first and last name + space
+    // Note; 'getFullName' uses first and last name + space
 
     public String getFirstName() {
         return firstName;
@@ -59,5 +60,5 @@ public abstract class Person {
                 ", socialSecurityNumber='" + socialSecurityNumber + '\'' +
                 '}';
     }
-//TODO: Tostring
+
 }

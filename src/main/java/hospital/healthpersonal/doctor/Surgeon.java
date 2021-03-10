@@ -7,13 +7,15 @@ public class Surgeon extends Doctor {
         super(firstName, lastName, socialSecurityNumber);
     }
 
+
+    // Can set patient diagnose
     @Override
     public void setDiagnosis(Patient patient, String diagnose) {
 
     }
 
 
-// Can set patient diagnose
+
 
 
 }

@@ -64,7 +64,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <!-- Husk på at blir hele pakke navn-->
-                            <mainClass>Simulator.SimulatorView</mainClass>
+                            <mainClass>HospitalClient.</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

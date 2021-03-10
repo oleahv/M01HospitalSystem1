@@ -4,14 +4,27 @@ package hospital;
 import hospital.exception.RemoveException;
 
 import java.util.*;
+import java.util.stream.Collectors;
+
 
 public class Department {
 
     private String departmentName;
 
 
+    //Lists to hold the employee and patient objects respectively.
+    //Recommend using HashMap with key as social security number to allow one to search after a patient or employee
+
+//TODO:
+    HashMap<Employee, Integer> employeeHashMap = new HashMap<>();
+    HashMap<Employee, Integer> patientHashMap = new HashMap<>();
+
+
     List<Employee> employeeList = new ArrayList<>();
+
     List<Patient> patientList = new ArrayList<>();
+
+
 
     Person person = new Person("", "", "") {
         @Override
@@ -40,21 +53,53 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-    Scanner scanner = new Scanner(System.in);
-    String userInputFirstName  = null;
-    String userInputLastName  = null;
-    String userInputSocialSecurityNumber  = null;
 
     public List<Employee> getEmployees() {
         return employeeList;
         //TODO:
     }
 
+
     public void addEmployee(Employee employee) {
 
-    this.employeeList.add(employee);
-    }
+        //TODO: check
 
+        // check if the social security number is 8 digits.
+        try {
+            //TODO: check
+            int intCheck = Integer.parseInt(employee.getSocialSecurityNumber());
+            if (!(employee.getSocialSecurityNumber().length() == 8)) {
+                System.out.println("The social security number inputted is not 8 digits");
+
+            }
+
+            else {
+                //TODO:
+                /*
+                    int index=0;
+                for (Employee employeeSSN: employeeList) {
+                   */ if (!employeeList.contains(employee)) {
+                        employeeList.add(employee);
+                        System.out.println("added once");
+                    }
+
+             /*   }
+
+                    if (index>0){
+                        employeeList.add(employee);
+                        System.out.println("++");
+                    }*/
+                    else {
+                        System.out.println("You have tried to add a person already in the list");
+                    }
+
+
+            }
+        }
+        catch (NumberFormatException numberFormatException) {
+            System.out.println("It seems you have not inputted a number for the social security number, or left it blank");
+        }
+    }
 
 
 
@@ -69,65 +114,65 @@ public class Department {
 
 
     public void addPatient(Patient patient) {
-        this.patientList.add(patient);
-    }
-
-/*
-    public void addPatient() {
+        //TODO: check
 
 
-        System.out.println("Please input the first name of the patient: ");
+        try {
+            // check if the social security number is 8 digits. If not, will cause an exception.
+            int intCheck = Integer.parseInt(patient.getSocialSecurityNumber());
 
-        if (scanner.hasNext()) {
-            userInputFirstName = scanner.nextLine();
-        }
-        System.out.println("Please input the last name of the patient: ");
+            //add a person if the string length is 8 characters
+            if (!(patient.getSocialSecurityNumber().length() == 8)) {
+                System.out.println("The social security number inputted is not 8 digits");
 
-        if (scanner.hasNext()) {
-            userInputLastName = scanner.nextLine();
-        }
-        System.out.println("Please input the social security number of the patient: ");
-
-        if (scanner.hasNext()) {
-            userInputSocialSecurityNumber = scanner.nextLine();
-        }
-
-
-        Patient newPatientBasedOnInput = new Patient(userInputFirstName, userInputLastName, userInputSocialSecurityNumber);
-
-//TODO: if check does not work. Suspect it checks an object against a String.
-                if(!patientList.contains(getPatients().equals(userInputSocialSecurityNumber)))
-              {
-
-                 this.patientList.add(newPatientBasedOnInput);
             }
-                else{
-                    System.out.println("social security number matches when it should not");
+            else {
+                for (Patient patientSSN: this.patientList) {
+                    if (!patientList.contains(patientSSN)) {
+                        this.patientList.add(patient);
+                    }
+                    else {
+                        System.out.println("You have tried to add a person already in the list");
+                    }
                 }
+            }
+        }
 
+        catch (NumberFormatException numberFormatException) {
+            System.out.println("It seems you have not inputted a number for the social security number, or left it blank");
+        }
     }
-*/
-
-
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Department that = (Department) o;
-        return Objects.equals(departmentName, that.departmentName);
+        return Objects.equals(departmentName, that.departmentName) &&
+                Objects.equals(employeeList, that.employeeList) &&
+                Objects.equals(patientList, that.patientList) &&
+                Objects.equals(person, that.person);
     }
-
-
 
     @Override
     public int hashCode() {
-        return Objects.hash(departmentName);
+        return Objects.hash(departmentName, employeeList, patientList, person);
     }
 //TODO: hashcode
+//TODO: change to match when needed
 
-    
+    @Override
+    public String toString() {
+        return "Department{" +
+                "departmentName='" + departmentName + '\'' +
+                ", employeeList=" + employeeList +
+                ", patientList=" + patientList +
+                ", person=" + person +
+                '}';
+    }
+
+
+
 /*
 Dersom objektet som sendes inn ikke finnes i registrene (pasienter eller ansatte), skal det kastes et
 unntak. Lag en exception‐klasse kalt RemoveException som blir kastet av metoden remove. Unntaket
@@ -137,24 +182,18 @@ feilmeldingen.
 
     //an employee or patient belongs to a dept.
 
-     public void remove(Person person){
+     public void remove(Person person) throws RemoveException {
 
 
              if (patientList.contains(person) || employeeList.contains(person)) {
-                 //TODO: make sure to account for dual member in lists (can be employee and patient)
-                 //can get an error if the person is only in 1 list.
+
+             // Assumes that the employee will not get transferred to a patent list if they get sick/hurt.
                  patientList.remove(person);
                  employeeList.remove(person);
              } else {
-                 System.out.println("The person is not in the employee list or patient list");
+                 throw new RemoveException("The person is not in the employee list or patient list");
+
              }
          }
          }
 
-
-
-
-    //test
-
-
-    //TODO: Tostring ++

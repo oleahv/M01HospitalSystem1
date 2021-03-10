@@ -35,37 +35,27 @@ public final class HospitalTestData {
         // Add some departments
 
         hospital.Department emergency = new hospital.Department("Akutten");
-        emergency.getEmployees().add(new hospital.Employee("Odd Even", "Primtallet", ""));
-        emergency.getEmployees().add(new hospital.Employee("Huppasahn", "DelFinito", ""));
-        emergency.getEmployees().add(new hospital.Employee("Rigmor", "Mortis", ""));
-        emergency.getEmployees().add(new hospital.healthpersonal.doctor.GeneralPractitioner("Inco", "Gnito", ""));
-        emergency.getEmployees().add(new hospital.healthpersonal.doctor.Surgeon("Inco", "Gnito", ""));
-        emergency.getEmployees().add(new hospital.healthpersonal.Nurse("Nina", "Teknologi", ""));
-        emergency.getEmployees().add(new hospital.healthpersonal.Nurse("Ove", "Ralt", ""));
-        emergency.getPatients().add(new hospital.Patient("Inga", "Lykke", ""));
-        emergency.getPatients().add(new hospital.Patient("Ulrik", "Smål", ""));
+        emergency.getEmployees().add(new hospital.Employee("Odd Even", "Primtallet", "12345671"));
+        emergency.getEmployees().add(new hospital.Employee("Huppasahn", "DelFinito", "12345672"));
+        emergency.getEmployees().add(new hospital.Employee("Rigmor", "Mortis", "12345673"));
+        emergency.getEmployees().add(new hospital.healthpersonal.doctor.GeneralPractitioner("Inco", "Gnito", "12345674"));
+        emergency.getEmployees().add(new hospital.healthpersonal.doctor.Surgeon("Inco", "Gnito", "12345675"));
+        emergency.getEmployees().add(new hospital.healthpersonal.Nurse("Nina", "Teknologi", "12345676"));
+        emergency.getEmployees().add(new hospital.healthpersonal.Nurse("Ove", "Ralt", "12345677"));
+        emergency.getPatients().add(new hospital.Patient("Inga", "Lykke", "12345678"));
+        emergency.getPatients().add(new hospital.Patient("Ulrik", "Smål", "12345679"));
         hospital.getDepartments().add(emergency);
         hospital.Department childrenPolyclinic = new hospital.Department("Barn poliklinikk");
-        childrenPolyclinic.getEmployees().add(new hospital.Employee("Salti", "Kaffen", ""));
-        childrenPolyclinic.getEmployees().add(new hospital.Employee("Nidel V.", "Elvefølger", ""));
-        childrenPolyclinic.getEmployees().add(new hospital.Employee("Anton", "Nym", ""));
-        childrenPolyclinic.getEmployees().add(new hospital.healthpersonal.doctor.GeneralPractitioner("Gene", "Sis", ""));
-        childrenPolyclinic.getEmployees().add(new hospital.healthpersonal.doctor.Surgeon("Nanna", "Na", ""));
-        childrenPolyclinic.getEmployees().add(new hospital.healthpersonal.Nurse("Nora", "Toriet", ""));
-        childrenPolyclinic.getPatients().add(new hospital.Patient("Hans", "Omvar", ""));
-        childrenPolyclinic.getPatients().add(new hospital.Patient("Laila", "La", ""));
-        childrenPolyclinic.getPatients().add(new hospital.Patient("Jøran", "Drebli", ""));
+        childrenPolyclinic.getEmployees().add(new hospital.Employee("Salti", "Kaffen", "22345671"));
+        childrenPolyclinic.getEmployees().add(new hospital.Employee("Nidel V.", "Elvefølger", "22345672"));
+        childrenPolyclinic.getEmployees().add(new hospital.Employee("Anton", "Nym", "22345673"));
+        childrenPolyclinic.getEmployees().add(new hospital.healthpersonal.doctor.GeneralPractitioner("Gene", "Sis", "22345674"));
+        childrenPolyclinic.getEmployees().add(new hospital.healthpersonal.doctor.Surgeon("Nanna", "Na", "22345675"));
+        childrenPolyclinic.getEmployees().add(new hospital.healthpersonal.Nurse("Nora", "Toriet", "22345676"));
+        childrenPolyclinic.getPatients().add(new hospital.Patient("Hans", "Omvar", "22345677"));
+        childrenPolyclinic.getPatients().add(new hospital.Patient("Laila", "La", "22345678"));
+        childrenPolyclinic.getPatients().add(new hospital.Patient("Jøran", "Drebli", "22345679"));
         hospital.getDepartments().add(childrenPolyclinic);
-
-
-
-
-/*
-        //how to remove by index (need a way to find or, or change it
-
-        emergency.remove(emergency.getPatients().get(1));
-        emergency.remove(emergency.getPatients().get(0));
-*/
 
     }
 }

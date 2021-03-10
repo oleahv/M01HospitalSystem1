@@ -10,10 +10,11 @@ public class Nurse extends Employee {
         super(firstName, lastName, socialSecurityNumber);
     }
 
-
-
-/*
-    public hospital.healthpersonal.Nurse(String, String, String) {
+    @Override
+    public String toString() {
+        return "Nurse{}";
     }
-    TODO: toString*/
+
+
+
 }
