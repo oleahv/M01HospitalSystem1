@@ -9,21 +9,10 @@
     <version>1.0-SNAPSHOT</version>
 
 
-    <!-- Første måten å importere junit plugin for testing -->
-    <!--
-    <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.7.0</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-    -->
+    <!-- Note. This is a standard POM-file used to ensure that all functionality is covered (that is wanted at this point).
+     It may or may not include additional functionality that is not used.-->
 
-    <!-- Alternativt kan vi importere junit plugin for testing,
-    men vi skal importere både api og engine-->
-    <dependencies>
+        <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -38,11 +27,10 @@
         </dependency>
     </dependencies>
 
-    <!-- Her konfigureres kompilator, generert automatisk av IDE -->
+    <!-- Config the compiler -->
     <properties>
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
-        <!-- Her konfigureres kompilator -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -51,10 +39,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <!-- husk på at det blir minst 2.22.0 for at testen skal fungere -->
                 <version>2.22.1</version>
             </plugin>
-            <!-- Plugin for å fortelle main filen i applikasjon-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -62,9 +48,8 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <addClasspath>true</addClasspath>
-                            <!-- Husk på at blir hele pakke navn-->
-                            <mainClass>HospitalClient.</mainClass>
+                            <addClasspath>true</addClasspath>>
+                            <mainClass>HospitalClient</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
