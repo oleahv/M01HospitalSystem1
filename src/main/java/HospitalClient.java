@@ -1,7 +1,13 @@
 import hospital.Hospital;
 import hospital.exception.RemoveException;
-
-
+/**
+ *
+ *
+ *  Hospital backend (sort-of) project. HospitalTestData is downloaded from Blackbord.
+ *  @author Ole Anders Hvalsmarken
+ *  @version 0.8.1
+ *
+ */
 /**
  * The type Hospital client.
  */
