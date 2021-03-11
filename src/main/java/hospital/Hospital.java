@@ -1,6 +1,6 @@
 package hospital;
 
-import java.util.*;
+import java.util.HashMap;
 
 /**
  * The type Hospital.
@@ -9,19 +9,18 @@ public class Hospital {
 
     private final String hospitalName;
 
-    /**
-     *  List which holds all Department objects.
-     * The Department list.
-     */
 
+    /**
+     * The Department hash map.
+     */
     HashMap<String, Department> departmentHashMap = new HashMap<>();
 
-    //List<Department> departmentList = new ArrayList<>();
+
 
     /**
      * Instantiates a new Hospital.
      *
-     * @param hospitalName the hospital name
+     * @param hospitalName the name of the hospital
      */
     public Hospital(String hospitalName) {
         this.hospitalName = hospitalName;
@@ -37,24 +36,32 @@ public class Hospital {
     }
 
 
+    /**
+     * Gets department hashmap.
+     *
+     * @return the department hashmap which holds the departments
+     */
     public HashMap<String, Department> getDepartmentHashMap() {
         return departmentHashMap;
     }
 
 
+    /**
+     * Add department to the departmentHashMap as long as the departmentNumberUnique is unique and not in the hashmap.
+     *
+     * @param departmentID the department id is a placeholder number for the departmentNumberUnique.
+     * @param department   the department belonging to the hospital.
+     */
     public void addDepartment(String departmentID, Department department) {
         if (!departmentHashMap.containsKey(department.getDepartmentNumberUnique())){
 
             departmentHashMap.put(department.getDepartmentNumberUnique(), department);
-            System.out.println("test");
         }
         else{
             System.out.println("A department is already using that name");
         }
 
     }
-
-
 
     @Override
     public String toString() {

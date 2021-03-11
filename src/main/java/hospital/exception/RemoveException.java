@@ -1,9 +1,16 @@
 package hospital.exception;
 
+/**
+ * The type Remove exception.
+ */
 public class RemoveException extends Exception {
 
 
-
+    /**
+     * Instantiates a new Remove exception.
+     *
+     * @param stringExceptionMessage the string exception message
+     */
     public RemoveException(String stringExceptionMessage) {
 
                 super(stringExceptionMessage);

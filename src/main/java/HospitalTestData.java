@@ -19,15 +19,19 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The type Hospital test data.
+ */
 public final class HospitalTestData {
     private HospitalTestData() {
         // not called
     }
 
     /**
-     * @param hospital
+     * Fills the register with test data.
+     *
+     * @param hospital the hospital the system is built for
      */
-
     public static void fillRegisterWithTestData(final hospital.Hospital hospital) {
         // Add some departments
 
