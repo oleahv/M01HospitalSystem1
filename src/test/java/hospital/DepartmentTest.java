@@ -8,6 +8,10 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import static org.junit.jupiter.api.Assertions.*;
 
+
+/**
+ * 4 test should pass in this testclass. Note that
+ */
 class DepartmentTest {
 
 
@@ -22,7 +26,7 @@ class DepartmentTest {
     hospital.Department emergency = new hospital.Department("Akutten", "111");
     hospital.Department childrenPolyclinic = new hospital.Department("Barn poliklinikk", "222");
 
-
+    // creates data to use for testing
     @BeforeEach
     @DisplayName("fills the hashmaps with testdata")
         void fillRegisterWithTestDataTest() {
@@ -52,7 +56,7 @@ class DepartmentTest {
 
         }
 
-
+        // test the getter for hospitalName
         @Test
         @DisplayName("getter test for hospitalName")
         void getHospitalNamePositive() {
@@ -62,7 +66,7 @@ class DepartmentTest {
 
         }
 
-
+        // test the getDepartmentName
         @Test
         @DisplayName("getter test for departmentName")
         void getDepartmentName() {
@@ -72,8 +76,11 @@ class DepartmentTest {
 
         }
 
-
-        @Test
+    /**
+     * Removes a person from the hashmap successfully
+     * @throws RemoveException
+     */
+    @Test
         @DisplayName("Removes persons from the hashmaps")
         void removePositiveTest() throws RemoveException {
 
@@ -98,35 +105,29 @@ class DepartmentTest {
 
         }
 
-
+    /**
+     * Tries to remove a person not in the list. Will "fail". Failure + fauilure -> passed test
+     * @throws RemoveException
+     */
     @Test
     @DisplayName("Removes persons from the hashmaps that is out of bounds (crashes")
     void removeNegativeTest() throws RemoveException {
 
-
-            //TODO:
-
-            try {
-                emergency.getEmployeeHashMap().put("1234567700", new hospital.healthpersonal.Nurse("Ove", "Ralt", "1234567700"));
-                emergency.getPatientHashMap().put("1234567800", new hospital.Patient("Inga", "Lykke", "1234567800"));
-
-                System.out.println(hospital.departmentHashMap.get("111").getEmployeeHashMap().size());
-                System.out.println(hospital.departmentHashMap.get("111").getPatientHashMap().size());
-
-                hospital.getDepartmentHashMap().get("111").remove("12345600", new hospital.healthpersonal.Nurse("Ove", "Ralt", "12345600"));
-                hospital.getDepartmentHashMap().get("111").remove("12345600", new hospital.Patient("Inga", "Lykke", "12345600"));
+        try{
+            emergency.getEmployeeHashMap().put("12345677", new hospital.healthpersonal.Nurse("Ove", "Ralt", "12345677"));
+            System.out.println(hospital.departmentHashMap.get("111").getEmployeeHashMap().size());
 
 
-            fail("tried to create a object with wrong social security number format");
+            hospital.getDepartmentHashMap().get("111").remove("20112244", new hospital.healthpersonal.Nurse("Ove", "Ralt", "20112244"));
+            System.out.println(hospital.departmentHashMap.get("111").getEmployeeHashMap().size());
+            fail("When trying to remove a person it will fail if the person is not is the list");
+        }
+        catch (Exception e){
+           assert(true);
+        }
+    }
 
-            }
-            catch (IndexOutOfBoundsException | RemoveException exceptionFound){
-                System.out.println(exceptionFound);
-
-                assert (true);
-            }
-            }
-
+        //Clear the data from the hashmpas
         @AfterEach
         @DisplayName("Clear the hashmaps")
         void clearTestData() {
