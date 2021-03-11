@@ -42,26 +42,26 @@ catch exception blokk for å håndtere situasjonen.
 emergency2.addPatient("12122129", new hospital.Patient("Inga", "Lykke", "12122121"));
             System.out.println(emergency2.getPatientHashMap().size());
 
+
+          //  emergency2.remove("12122129", new hospital.Patient("Inga", "Lykke", "12122121"));
+
+
+
+
+hospital.getDepartmentHashMap().get("555").remove("12122129", new hospital.Patient("Inga", "Lykke", "12122121"));
+
             System.out.println(emergency2.getPatientHashMap().size());
 
 
-            /*
-        hospital.getDepartments().get(0).addEmployee((new Employee("testFirstName1", "testLastName1","11223344")));
 
-            //There are 7 employees in that department
-            hospital.getDepartments().get(0).remove(hospital.getDepartments().get(0).getEmployees().get(0));
-
-            //There are 7 patients in that department
-           //    hospital.getDepartments().get(0).remove(hospital.getDepartments().get(0).getPatients().get(99));
-*/
 
         }
 
-        catch (IndexOutOfBoundsException e){ //| RemoveException exceptionFound){
+        catch (IndexOutOfBoundsException | RemoveException exceptionFound){
 
 
-            System.out.println(e.getMessage());
-            System.out.println(e);
+
+            System.out.println(exceptionFound);
 
 
         }

@@ -173,15 +173,23 @@ feilmeldingen.
 
     //an employee or patient belongs to a dept.
 
-     public void remove(Person person) throws RemoveException {
+     public void remove(String personID, Person person) throws RemoveException {
 
 //TODO:
-             if (patientHashMap.containsKey(person) || employeeHashMap.containsKey(person)) {
+             if (patientHashMap.containsKey(person.getSocialSecurityNumber()))  {
 
-             // Assumes that the employee will not get transferred to a patent list if they get sick/hurt.
-                 patientHashMap.remove(person);
-                 employeeHashMap.remove(person);
-             } else {
+             // Assumes that the patient will not get transferred to a patent list if they get sick/hurt.
+                 patientHashMap.remove(person.getSocialSecurityNumber());
+
+             }
+             else if (employeeHashMap.containsKey(person.getSocialSecurityNumber())){
+
+                 // Assumes that the employee will not get transferred to a patent list if they get sick/hurt.
+                 employeeHashMap.remove(person.getSocialSecurityNumber());
+             }
+
+
+     else {
                  throw new RemoveException("The person is not in the employee list or patient list");
 
              }
