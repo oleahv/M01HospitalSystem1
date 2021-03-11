@@ -1,8 +1,10 @@
 import hospital.Department;
 import hospital.Employee;
 import hospital.Hospital;
+import hospital.Patient;
 import hospital.exception.RemoveException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,34 +30,38 @@ catch exception blokk for å håndtere situasjonen.
             Hospital hospital = new Hospital("Olav");
             HospitalTestData.fillRegisterWithTestData(hospital);
 
-            hospital.Department emergency2 = new hospital.Department("Akutten1");
-            hospital.Department emergency3 = new hospital.Department("Akutten1");
-            hospital.Department emergency4 = new hospital.Department("Akutten1");
-            hospital.getDepartments().add(emergency2);
-            hospital.getDepartments().add(emergency3);
-            hospital.getDepartments().add(emergency4);
+            hospital.Department emergency2 = new hospital.Department("Akutten1", "555");
 
-            System.out.println(hospital.getDepartments().size());
 
-            hospital.getDepartments().get(0).addEmployee((new Employee("testFirstName1", "testLastName1","11223344")));
-            System.out.println("RRRR");
+            hospital.addDepartment("555",emergency2);
 
-            //TODO: fix that you can add it twice.
-                        hospital.getDepartments().get(0).addEmployee((new Employee("testFirstName1", "testLastName1","11223344")));
+
+            System.out.println(emergency2.getPatientHashMap().size());
+
+            //emergency2.getEmployeeHashMap().put("12122121", new hospital.Employee("Inga", "Lykke", "12122121"));
+emergency2.addPatient("12122129", new hospital.Patient("Inga", "Lykke", "12122121"));
+            System.out.println(emergency2.getPatientHashMap().size());
+
+            System.out.println(emergency2.getPatientHashMap().size());
+
+
+            /*
+        hospital.getDepartments().get(0).addEmployee((new Employee("testFirstName1", "testLastName1","11223344")));
 
             //There are 7 employees in that department
             hospital.getDepartments().get(0).remove(hospital.getDepartments().get(0).getEmployees().get(0));
 
             //There are 7 patients in that department
            //    hospital.getDepartments().get(0).remove(hospital.getDepartments().get(0).getPatients().get(99));
-
+*/
 
         }
-        catch (IndexOutOfBoundsException | RemoveException exceptionFound){
+
+        catch (IndexOutOfBoundsException e){ //| RemoveException exceptionFound){
 
 
-            System.out.println(exceptionFound.getMessage());
-            System.out.println(exceptionFound);
+            System.out.println(e.getMessage());
+            System.out.println(e);
 
 
         }
@@ -67,6 +73,12 @@ catch exception blokk for å håndtere situasjonen.
         System.out.println("#######");
     }
 }
+/*
+//addDepartment fungerer
+
+add employee og patient fungerer
+ System.out.println(emergency2.getEmployeeHashMap().size());
 
 
 
+*/

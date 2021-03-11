@@ -4,25 +4,25 @@ package hospital;
 import hospital.exception.RemoveException;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 public class Department {
 
     private String departmentName;
+    private String departmentNumberUnique;
 
 
     //Lists to hold the employee and patient objects respectively.
     //Recommend using HashMap with key as social security number to allow one to search after a patient or employee
 
 //TODO:
-    HashMap<Employee, Integer> employeeHashMap = new HashMap<>();
-    HashMap<Employee, Integer> patientHashMap = new HashMap<>();
+    HashMap<String, Employee> employeeHashMap = new HashMap<>();
+    HashMap<String, Patient> patientHashMap = new HashMap<>();
 
 
-    List<Employee> employeeList = new ArrayList<>();
+   // List<Employee> employeeList = new ArrayList<>();
 
-    List<Patient> patientList = new ArrayList<>();
+    //List<Patient> patientList = new ArrayList<>();
 
 
 
@@ -38,12 +38,20 @@ public class Department {
         }
     };
 
-
-
-
-    public Department(String departmentName) {
+    public Department(String departmentName, String departmentNumberUnique) {
         this.departmentName = departmentName;
+        this.departmentNumberUnique = departmentNumberUnique;
     }
+
+    public String getDepartmentNumberUnique() {
+        return departmentNumberUnique;
+    }
+
+
+    public void setDepartmentNumberUnique(String departmentNumberUnique) {
+        this.departmentNumberUnique = departmentNumberUnique;
+    }
+
 
     public String getDepartmentName() {
         return departmentName;
@@ -53,14 +61,16 @@ public class Department {
         this.departmentName = departmentName;
     }
 
+    public HashMap<String, Employee> getEmployeeHashMap() {
+        return employeeHashMap;
+    }
 
-    public List<Employee> getEmployees() {
-        return employeeList;
-        //TODO:
+    public HashMap<String, Patient> getPatientHashMap() {
+        return patientHashMap;
     }
 
 
-    public void addEmployee(Employee employee) {
+    public void addEmployee(String employeeID, Employee employee) {
 
         //TODO: check
 
@@ -75,26 +85,14 @@ public class Department {
 
             else {
                 //TODO:
-                /*
-                    int index=0;
-                for (Employee employeeSSN: employeeList) {
-                   */ if (!employeeList.contains(employee)) {
-                        employeeList.add(employee);
-                        System.out.println("added once");
-                    }
-
-             /*   }
-
-                    if (index>0){
-                        employeeList.add(employee);
-                        System.out.println("++");
-                    }*/
-                    else {
-                        System.out.println("You have tried to add a person already in the list");
-                    }
-
-
+                if (!employeeHashMap.containsKey(employee.getSocialSecurityNumber())) {
+                    employeeHashMap.put(employee.getSocialSecurityNumber(), employee);
+                } else {
+                    System.out.println("The employee you wanted to add is already in the list");
+                }
             }
+
+
         }
         catch (NumberFormatException numberFormatException) {
             System.out.println("It seems you have not inputted a number for the social security number, or left it blank");
@@ -102,42 +100,30 @@ public class Department {
     }
 
 
-
-    public List<Patient> getPatients() {
-        return patientList;
-        //TODO:
-    }
-
-
-
-
-
-
-    public void addPatient(Patient patient) {
+    public void addPatient(String patientID, Patient patient) {
         //TODO: check
 
 
+        // check if the social security number is 8 digits.
         try {
-            // check if the social security number is 8 digits. If not, will cause an exception.
+            //TODO: check
             int intCheck = Integer.parseInt(patient.getSocialSecurityNumber());
-
-            //add a person if the string length is 8 characters
             if (!(patient.getSocialSecurityNumber().length() == 8)) {
                 System.out.println("The social security number inputted is not 8 digits");
 
             }
+
             else {
-                for (Patient patientSSN: this.patientList) {
-                    if (!patientList.contains(patientSSN)) {
-                        this.patientList.add(patient);
-                    }
-                    else {
-                        System.out.println("You have tried to add a person already in the list");
-                    }
+                //TODO:
+                if (!patientHashMap.containsKey(patient.getSocialSecurityNumber())) {
+                    patientHashMap.put(patient.getSocialSecurityNumber(), patient);
+                } else {
+                    System.out.println("The patient you wanted to add is already in the list");
                 }
             }
-        }
 
+
+        }
         catch (NumberFormatException numberFormatException) {
             System.out.println("It seems you have not inputted a number for the social security number, or left it blank");
         }
@@ -149,27 +135,32 @@ public class Department {
         if (o == null || getClass() != o.getClass()) return false;
         Department that = (Department) o;
         return Objects.equals(departmentName, that.departmentName) &&
-                Objects.equals(employeeList, that.employeeList) &&
-                Objects.equals(patientList, that.patientList) &&
+                Objects.equals(departmentNumberUnique, that.departmentNumberUnique) &&
+                Objects.equals(employeeHashMap, that.employeeHashMap) &&
+                Objects.equals(patientHashMap, that.patientHashMap) &&
                 Objects.equals(person, that.person);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(departmentName, employeeList, patientList, person);
+        return Objects.hash(departmentName, departmentNumberUnique, employeeHashMap, patientHashMap, person);
     }
-//TODO: hashcode
+
+    //TODO: hashcode
 //TODO: change to match when needed
 
     @Override
     public String toString() {
         return "Department{" +
                 "departmentName='" + departmentName + '\'' +
-                ", employeeList=" + employeeList +
-                ", patientList=" + patientList +
+                ", departmentNumberUnique='" + departmentNumberUnique + '\'' +
+                ", employeeHashMap=" + employeeHashMap +
+                ", patientHashMap=" + patientHashMap +
                 ", person=" + person +
                 '}';
     }
+
+
 
 
 
@@ -184,12 +175,12 @@ feilmeldingen.
 
      public void remove(Person person) throws RemoveException {
 
-
-             if (patientList.contains(person) || employeeList.contains(person)) {
+//TODO:
+             if (patientHashMap.containsKey(person) || employeeHashMap.containsKey(person)) {
 
              // Assumes that the employee will not get transferred to a patent list if they get sick/hurt.
-                 patientList.remove(person);
-                 employeeList.remove(person);
+                 patientHashMap.remove(person);
+                 employeeHashMap.remove(person);
              } else {
                  throw new RemoveException("The person is not in the employee list or patient list");
 

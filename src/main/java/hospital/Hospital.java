@@ -13,10 +13,10 @@ public class Hospital {
      *  List which holds all Department objects.
      * The Department list.
      */
-//TODO: check if Arrays.toList() can be better option
-    HashMap<Department, Integer> departmentHashMap = new HashMap<>();
 
-    List<Department> departmentList = new ArrayList<>();
+    HashMap<String, Department> departmentHashMap = new HashMap<>();
+
+    //List<Department> departmentList = new ArrayList<>();
 
     /**
      * Instantiates a new Hospital.
@@ -37,24 +37,16 @@ public class Hospital {
     }
 
 
-    /**
-     * Get departments list.
-     *
-     * @return the list
-     */
-    public List<Department> getDepartments(){
-        return departmentList;
+    public HashMap<String, Department> getDepartmentHashMap() {
+        return departmentHashMap;
     }
 
 
-    /**
-     * Add
-     *
-     * @param department the department to be added
-     */
-    public void addDepartment(Department department) {
-        if (!departmentList.contains(department)){
-            departmentList.add(department);
+    public void addDepartment(String departmentID, Department department) {
+        if (!departmentHashMap.containsKey(department.getDepartmentNumberUnique())){
+
+            departmentHashMap.put(department.getDepartmentNumberUnique(), department);
+            System.out.println("test");
         }
         else{
             System.out.println("A department is already using that name");
